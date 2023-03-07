@@ -1,6 +1,5 @@
 from Settings import *
 
-
 class Pokemon:
     def __init__(self, id, pos, side):
         self.pos = pos

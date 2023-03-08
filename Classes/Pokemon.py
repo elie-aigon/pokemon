@@ -27,6 +27,9 @@ class Pokemon:
     def setHp(self, valeur):
         self.__hp = valeur
 
+    def getHp(self):
+        return self.__hp
+        
     def attaquer(self, enemi):
         enemi.setHp(self.dmg)
 

@@ -6,7 +6,9 @@ green_hp = (112, 248, 168)
 back_hp = (75, 78, 88)
 
 pos_combat_enemi = (800, 300)
+pos_stats_enemi = (500, 150)
 pos_combat_player = (300, 530)
+pos_stats_player = (600, 600)
 
 # base stats!
 with open("Data/JSON/pokemon.json", "r") as f:

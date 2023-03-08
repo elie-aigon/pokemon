@@ -1,6 +1,7 @@
 from Settings import *
 from Pokemon import Pokemon
 from Stats import Stats
+from ActionCombat import ActionCombat
 
 class Combat:
     def __init__(self, surface):
@@ -13,6 +14,8 @@ class Combat:
         self.enemi_stats = Stats(pos_stats_enemi, self.enemi, False)
         self.player = Pokemon(25, pos_combat_player, "player")
         self.player_stats = Stats(pos_stats_player, self.player, True)
+        self.combat = ActionCombat(self.player, self.enemi)
+
 
 # UI
     def load_images(self):
@@ -26,6 +29,7 @@ class Combat:
         self.enemi_stats.draw_self(self.surface)
         self.player.draw_self(self.surface)
         self.player_stats.draw_self(self.surface)
+        self.combat.draw_self(self.surface)
 
 # EVENT
     def check_events(self):
@@ -34,4 +38,5 @@ class Combat:
                 pygame.quit()
                 sys.exit()
             
-            
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                self.combat.first_choice_done = True

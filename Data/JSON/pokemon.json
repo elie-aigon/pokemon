@@ -59,7 +59,7 @@
     "id": 4,
     "name": {
       "english": "Charmander",
-      "french": "Salamèche"
+      "french": "Salameche"
     },
     "type": 
       "Feu"
@@ -628,7 +628,7 @@
     "id": 35,
     "name": {
       "english": "Clefairy",
-      "french": "Mélofée"
+      "french": "Melofee"
     },
     "type": [
       "Fairy"
@@ -646,7 +646,7 @@
     "id": 36,
     "name": {
       "english": "Clefable",
-      "french": "Mélodelfe"
+      "french": "Melodelfe"
     },
     "type": [
       "Fairy"
@@ -889,7 +889,7 @@
     "id": 49,
     "name": {
       "english": "Venomoth",
-      "french": "Aéromite"
+      "french": "Aeromite"
     },
     "type": [
       "Bug",
@@ -1016,7 +1016,7 @@
     "id": 56,
     "name": {
       "english": "Mankey",
-      "french": "Férosinge"
+      "french": "Ferosinge"
     },
     "type": [
       "Fighting"
@@ -1251,7 +1251,7 @@
     "id": 69,
     "name": {
       "english": "Bellsprout",
-      "french": "Chétiflor"
+      "french": "Chetiflor"
     },
     "type": [
       "Grass",
@@ -1477,7 +1477,7 @@
     "id": 81,
     "name": {
       "english": "Magnemite",
-      "french": "Magnéti"
+      "french": "Magneti"
     },
     "type": 
       "Electric",
@@ -1496,7 +1496,7 @@
     "id": 82,
     "name": {
       "english": "Magneton",
-      "french": "Magnéton"
+      "french": "Magneton"
     },
     "type": 
       "Electric",
@@ -1848,7 +1848,7 @@
     "id": 101,
     "name": {
       "english": "Electrode",
-      "french": "Électrode"
+      "french": "electrode"
     },
     "type": 
       "Electric"
@@ -2049,7 +2049,7 @@
     "id": 112,
     "name": {
       "english": "Rhydon",
-      "french": "Rhinoféros"
+      "french": "Rhinoferos"
     },
     "type": [
       "Ground",
@@ -2140,7 +2140,7 @@
     "id": 117,
     "name": {
       "english": "Seadra",
-      "french": "Hypocéan"
+      "french": "Hypocean"
     },
     "type": 
       "Eau"
@@ -2158,7 +2158,7 @@
     "id": 118,
     "name": {
       "english": "Goldeen",
-      "french": "Poissirène"
+      "french": "Poissirene"
     },
     "type": [
       "Eau"
@@ -2250,7 +2250,7 @@
     "id": 123,
     "name": {
       "english": "Scyther",
-      "french": "Insécateur"
+      "french": "Insecateur"
     },
     "type": [
       "Bug",
@@ -2288,7 +2288,7 @@
     "id": 125,
     "name": {
       "english": "Electabuzz",
-      "french": "Élektek"
+      "french": "elektek"
     },
     "type": 
       "Electric"
@@ -2378,7 +2378,7 @@
     "id": 130,
     "name": {
       "english": "Gyarados",
-      "french": "Léviator"
+      "french": "Leviator"
     },
     "type": 
       "Eau"
@@ -2416,7 +2416,7 @@
     "id": 132,
     "name": {
       "english": "Ditto",
-      "french": "Métamorph"
+      "french": "Metamorph"
     },
     "type": [
       "Normal"
@@ -2434,7 +2434,7 @@
     "id": 133,
     "name": {
       "english": "Eevee",
-      "french": "Évoli"
+      "french": "evoli"
     },
     "type": 
       "Normal"
@@ -2600,7 +2600,7 @@
     "id": 142,
     "name": {
       "english": "Aerodactyl",
-      "french": "Ptéra"
+      "french": "Ptera"
     },
     "type": [
       "Rock",
@@ -2656,7 +2656,7 @@
     "id": 145,
     "name": {
       "english": "Zapdos",
-      "french": "Électhor"
+      "french": "electhor"
     },
     "type": [
       "Electric",

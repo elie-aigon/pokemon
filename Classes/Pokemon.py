@@ -4,10 +4,14 @@ class Pokemon:
     def __init__(self, id, pos, side):
         self.pos = pos
         self.setBase(id - 1)
+        self.current_hp = self.__hp
+        self.lvl = 0
+        self.state = str()
         self.image = pygame.image.load("Data/Images/" + self.type + "/" + str(id) +".png")
         self.image = pygame.transform.scale(self.image, (200, 200))
         if not side == "enemi":
             self.image = pygame.transform.flip(self.image, True, False)
+    
     def draw_self(self, surface):
         surface.blit(self.image, self.pos)
 
@@ -29,7 +33,5 @@ class Pokemon:
 
     def getHp(self):
         return self.__hp
-        
-    def attaquer(self, enemi):
-        enemi.setHp(self.dmg)
+    
 

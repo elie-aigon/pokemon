@@ -8,3 +8,4 @@ while True:
     combat.check_events()
     combat.draw_all()
     pygame.display.update()
+

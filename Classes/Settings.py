@@ -18,3 +18,5 @@ pos_stats_player = (600, 600)
 # base stats!
 with open("Data/JSON/pokemon.json", "r") as f:
     base_stats = json.load(f)
+
+stab_relation = {"Feu,Feu": 0.5, "Feu,Eau": 0.5, "Feu,Normal":2, "Normal,Normal": 1, "Electric,Feu": 1, "Electric,Eau": 2, "Electric,Normal": 1, "Eau,Normal": 1, "Eau,Eau": 0.5, "Electric,Electric": 0.5}

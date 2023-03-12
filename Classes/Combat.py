@@ -4,60 +4,64 @@ from Stats import Stats
 from ActionCombat import ActionCombat
 
 class Combat:
-    def __init__(self, surface):
+    def __init__(self, surface, name):
         self.surface = surface
-        self.load_images()
-        self.init_test()
+        self.load_ressources()
+        self.init_test(name)
 
-    def init_test(self):
-        self.enemi = Pokemon(7, pos_combat_enemi, "enemi")
-        self.enemi_stats = Stats(pos_stats_enemi, self.enemi, False)
-        self.player = Pokemon(4, pos_combat_player, "player")
-        self.player_stats = Stats(pos_stats_player, self.player, True)
+    def init_test(self, name):
+        self.player = Pokemon(int(pokedex[name][0]), self.surface, "player")
+        self.player_stats = Stats(pos_stats_player, self.player, "player")
+        self.enemi = Pokemon(int(random.choice(pokemon_available)), self.surface, "enemi")
+        self.enemi_stats = Stats(pos_stats_enemi, self.enemi, "enemi")
         self.actioncombat = ActionCombat(self.player, self.enemi)
 
 
 # UI
-    def load_images(self):
+    def load_ressources(self):
         self.background = pygame.image.load("Data/Images/background.png")
         self.background = pygame.transform.scale(self.background, window_size)
+        self.messages = pygame.image.load("Data/Images/messages.png")
+
 
     def draw_all(self):
         self.surface.blit(self.background, (0, 0))
-        self.enemi.draw_self(self.surface)
+        self.enemi.draw_self(pos_combat_enemi)
         self.enemi_stats.draw_self(self.surface)
-        self.player.draw_self(self.surface)
+        self.player.draw_self(pos_combat_player)
         self.player_stats.draw_self(self.surface)
         self.actioncombat.draw_self(self.surface)
+        self.action_death()
 
+    def draw_death(self, message):
+        self.surface.blit(self.messages, (window_size[0]//2 - self.messages.get_width()//2, window_size[1]//2 - self.messages.get_height()//2))
+        self.surface.blit(message, (window_size[0]//2 - self.death_message.get_width()//2, window_size[1]//2 - self.death_message.get_height() + 20))
+    
+    def action_death(self):
+        for pokemon in [self.player, self.enemi]:
+            if pokemon.state == "KO":
+                self.death_message = font_20.render(str(pokemon.getNom()) + "  est KO!", True, white)
+                self.draw_death(self.death_message)
 # EVENT
-    def check_events(self):
-        # print(self.actioncombat.check_death())
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+    def check_events(self, event):
+        self.actioncombat.update_death()
 
-            if self.actioncombat.state == 'CHOICE':
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
-                    self.actioncombat.state = 'FIGHT'
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_z:
-                    self.actioncombat.state = 'RUN'
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_e:
-                    self.actioncombat.state = 'POKEMON'
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
-                    self.actioncombat.state = 'BAG'
+        if self.actioncombat.state == 'CHOICE':
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
+                self.actioncombat.state = 'FIGHT'
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_z:
+                self.actioncombat.state = 'POKEMON'
 
-            elif self.actioncombat.state == 'FIGHT':
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
-                    self.actioncombat.player.attack(self.actioncombat.enemi, False)
-                    self.actioncombat.enemi_attack()
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_z:
-                    self.actioncombat.player.attack(self.actioncombat.enemi, True)
-                    self.actioncombat.enemi_attack()
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_e:
-                    self.actioncombat.player.attack(self.actioncombat.enemi)
-                    self.actioncombat.enemi_attack()
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
-                    self.actioncombat.player.attack(self.actioncombat.enemi)
-                    self.actioncombat.enemi_attack()
+        elif self.actioncombat.state == 'FIGHT':
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
+                self.actioncombat.player.attack(self.actioncombat.enemi, False)
+                self.actioncombat.enemi_attack()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_z:
+                self.actioncombat.player.attack(self.actioncombat.enemi, True)
+                self.actioncombat.enemi_attack()
+
+        elif self.actioncombat.state == "POKEMON":
+            if event.type == pygame.KEYDOWN and event.key == pygame.k_a:
+                pass
+            if event.type == pygame.KEYDOWN and event.key == pygame.k_z:
+                pass

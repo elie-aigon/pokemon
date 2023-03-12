@@ -1,19 +1,20 @@
 from Settings import *
+from Stats import Stats
 
-class Pokemon:
-    def __init__(self, id, pos, side):
-        self.pos = pos
+class Pokemon(Stats):
+    def __init__(self, id, surface, side):
+        self.surface = surface
         self.setBase(id - 1)
         self.current_hp = self.__hp
         self.lvl = 1
         self.state = str()
-        self.image = pygame.image.load("Data/Images/" + self.type + "/" + str(id) +".png")
+        self.image = pygame.image.load("Data/Images/Pokemon/" + str(id) +".png")
         self.image = pygame.transform.scale(self.image, (200, 200))
         if not side == "enemi":
             self.image = pygame.transform.flip(self.image, True, False)
 
-    def draw_self(self, surface):
-        surface.blit(self.image, self.pos)
+    def draw_self(self, pos):
+        self.surface.blit(self.image, pos)
 
     def setBase(self, id):
         self.__nom = base_stats[id]["name"]["french"]

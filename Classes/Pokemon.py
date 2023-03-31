@@ -6,6 +6,7 @@ class Pokemon(Stats):
         self.surface = surface
         self.setBase(id - 1)
         self.current_hp = self.__hp
+        self.xp = 0
         self.lvl = 1
         self.state = str()
         self.image = pygame.image.load("Data/Images/Pokemon/" + str(id) +".png")
@@ -25,7 +26,36 @@ class Pokemon(Stats):
         self.sp_dmg = base_stats[id]["base"]["Sp. Attack"]
         self.sp_defense = base_stats[id]["base"]["Sp. Defense"]
         self.speed = base_stats[id]["base"]["Speed"]
-        
+    
+    def rank_up(self):
+        if self.type == "Feu":
+            self.__hp += 4
+            self.dmg += 6
+            self.defense += 3
+            self.sp_dmg += 6
+            self.sp_defense += 3
+            self.speed += 4
+            self.__hp += 4
+            self.dmg += 6
+            self.defense += 3
+            self.sp_dmg += 6
+            self.sp_defense += 3
+            self.speed += 3
+        elif self.type == "Electric":
+            self.__hp += 4
+            self.dmg += 6
+            self.defense += 3
+            self.sp_dmg += 6
+            self.sp_defense += 3
+            self.speed += 3
+        elif self.type == "Normal":
+            self.__hp += 4
+            self.dmg += 6
+            self.defense += 3
+            self.sp_dmg += 6
+            self.sp_defense += 3
+            self.speed += 3
+            
     def getNom(self):
         return self.__nom
 
@@ -49,7 +79,5 @@ class Pokemon(Stats):
             stab = stab_relation[self.type+ ","+ other.type]
         else:
             stab = 1 // stab_relation[other.type + "," + self.type]
-        print(stab)
         dmg = round((((((self.lvl * 2)//5) + 2) * self.dmg * spe_normal_att //50 // spe_normal_def) * random) * stab)
-        print(dmg)
         other.setHp(dmg)

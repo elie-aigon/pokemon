@@ -7,15 +7,11 @@ class Combat:
     def __init__(self, surface, name):
         self.surface = surface
         self.load_ressources()
-        self.init_test(name)
-
-    def init_test(self, name):
         self.player = Pokemon(int(pokedex[name][0]), self.surface, "player")
         self.player_stats = Stats(pos_stats_player, self.player, "player")
         self.enemi = Pokemon(int(random.choice(pokemon_available)), self.surface, "enemi")
         self.enemi_stats = Stats(pos_stats_enemi, self.enemi, "enemi")
         self.actioncombat = ActionCombat(self.player, self.enemi)
-
 
 # UI
     def load_ressources(self):

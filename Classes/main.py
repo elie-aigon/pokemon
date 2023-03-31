@@ -1,5 +1,4 @@
 from Settings import *
-from Combat import Combat
 from Game import Game
 
 screen = pygame.display.set_mode(window_size)
